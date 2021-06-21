@@ -111,7 +111,7 @@ allprojects {
             url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
         }
         maven {
-            url = uri("http://maven.repository.redhat.com/techpreview/all")
+            url = uri("https://maven.repository.redhat.com/techpreview/all")
         }
     }
     apply(plugin = "idea")
@@ -312,10 +312,10 @@ subprojects {
     if (project.name != "cli") {
         // Exclude logback from dependency tree.
         configurations {
-            "compile" {
+            "implementation" {
                 exclude(group = "ch.qos.logback", module = "logback-classic")
             }
-            "compile" {
+            "implementation" {
                 exclude(group = "ch.qos.logback", module = "logback-core")
             }
         }

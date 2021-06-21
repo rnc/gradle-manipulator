@@ -56,14 +56,14 @@ dependencies {
 val functionalTestSourceSet = sourceSets.create("functionalTest") {
     java.srcDir("src/functTest/java")
     resources.srcDir("src/functTest/resources")
-    compileClasspath += sourceSets["main"].output + configurations.testRuntime
+    compileClasspath += sourceSets["main"].output + configurations.testRuntimeClasspath
     runtimeClasspath += output + compileClasspath
 }
 configurations.getByName("functionalTestImplementation").apply {
     extendsFrom(configurations.getByName("testImplementation"))
 }
-configurations.getByName("functionalTestRuntime").apply {
-    extendsFrom(configurations.getByName("testRuntime"))
+configurations.getByName("functionalTestRuntimeOnly").apply {
+    extendsFrom(configurations.getByName("testRuntimeOnly"))
 }
 // Previously had to force the addition of the plugin-under-test-metadata.properties but this seems to solve it.
 gradlePlugin.testSourceSets(functionalTestSourceSet)
