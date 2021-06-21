@@ -85,10 +85,6 @@ configure(allprojects) { project ->
     }
 }
 
-configure(subprojects) { subproject ->
-    apply from: "${rootProject.projectDir}/gradle/publish-maven.gradle"
-}
-
 configure(rootProject) {
     description = "Root project"
 
