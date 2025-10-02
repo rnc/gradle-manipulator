@@ -671,5 +671,8 @@ if (GradleVersion.current() >= GradleVersion.version("8.3")) {
                 dependsOn("publishAggregationToCentralPortal")
             }
         }
+        tasks.named(PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME) {
+            dependsOn("publishToCentral")
+        }
     }
 }
